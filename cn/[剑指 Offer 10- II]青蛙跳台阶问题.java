@@ -43,7 +43,9 @@ class QingWaTiaoTaiJieWenTiLcof {
     //leetcode submit region begin(Prohibit modification and deletion)
     class Solution {
         public int numWays(int n) {
-            if (n<=1) return 1;
+            if (n<=1) {
+                return 1;
+            }
             int mod = 1000000007;
             int[] dp = new int[n+1];
             dp[0] = 1;
