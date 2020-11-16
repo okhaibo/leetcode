@@ -16,9 +16,6 @@
 
 package leetcode.editor.cn;
 
-import java.util.Comparator;
-import java.util.PriorityQueue;
-
 class KthNodeFromEndOfListLcci {
     public static void main(String[] args) {
         Solution solution = new KthNodeFromEndOfListLcci().new Solution();
@@ -53,7 +50,7 @@ class KthNodeFromEndOfListLcci {
     }
 //leetcode submit region end(Prohibit modification and deletion)
 
-    public class ListNode {
+    class ListNode {
         int val;
         ListNode next;
 
