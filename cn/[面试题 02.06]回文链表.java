@@ -74,7 +74,7 @@ class PalindromeLinkedListLcci {
         }
 
 
-        //反转链表
+        //反转链表，并返回反转后的头节点
         public ListNode reverse(ListNode head) {
             ListNode prev = null;
             while (head != null) {
