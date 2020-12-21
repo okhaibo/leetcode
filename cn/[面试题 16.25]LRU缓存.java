@@ -35,7 +35,7 @@ import java.util.Map;
 
 class LruCacheLcci {
     public static void main(String[] args) {
-        LRUCache solution = new LruCacheLcci().new LRUCache();
+        //LRUCache solution = new LruCacheLcci().new LRUCache();
     }
 
     //leetcode submit region begin(Prohibit modification and deletion)
