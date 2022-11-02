@@ -55,7 +55,17 @@ class FibonacciNumber {
     class Solution {
         public int fib(int n) {
             if (n == 0 || n == 1) return n;
-            return fib(n-1)+fib(n-2);
+            int[] cache = new int[n+1];
+            cache[0] = 0; cache[1] = 1;
+            return iter(n, cache);
+        }
+
+        private int iter(int n, int[] cache) {
+            if (n==0||cache[n] != 0) {
+                return cache[n];
+            }
+            cache[n] = iter(n-1, cache) + iter(n-2,cache);
+            return cache[n];
         }
     }
 //leetcode submit region end(Prohibit modification and deletion)
