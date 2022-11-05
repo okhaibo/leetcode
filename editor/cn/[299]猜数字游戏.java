@@ -60,29 +60,24 @@ class BullsAndCows{
   //leetcode submit region begin(Prohibit modification and deletion)
 class Solution {
     public String getHint(String secret, String guess) {
-
-        int bulls = 0, cows = 0;
-        HashMap<Character, Integer> map = new HashMap<>();
-        char[] guessArr = guess.toCharArray();
-        for (int i = 0; i < secret.length(); i++) {
+        int bulls = 0;
+        int[] cntS = new int[10];
+        int[] cntG = new int[10];
+        for (int i = 0; i < secret.length(); ++i) {
             if (secret.charAt(i) == guess.charAt(i)) {
-                bulls++;
-                guessArr[i] = 'y';
+                ++bulls;
             } else {
-                map.put(secret.charAt(i), map.getOrDefault(secret.charAt(i),0)+1);
+                ++cntS[secret.charAt(i) - '0'];
+                ++cntG[guess.charAt(i) - '0'];
             }
         }
-        for (int i = 0; i < guessArr.length; i++) {
-            if (map.containsKey(guessArr[i])) {
-                cows++;
-                if (map.get(guessArr[i]) == 1) {
-                    map.remove(guessArr[i]);
-                } else {
-                    map.put(guessArr[i], map.get(guessArr[i])-1);
-                }
-            }
+        int cows = 0;
+        for (int i = 0; i < 10; ++i) {
+            cows += Math.min(cntS[i], cntG[i]);
         }
-        return bulls+"A"+cows+"B";
+        StringBuilder sb = new StringBuilder();
+        sb.append(bulls).append("A").append(cows).append("B");
+        return sb.toString();
     }
 }
 //leetcode submit region end(Prohibit modification and deletion)
